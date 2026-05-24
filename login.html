@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login — WanderLux</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+</head>
+<body class="auth-body">
+
+<!-- ===== CHECKPOINT 4: LOGIN PAGE ===== -->
+<div class="auth-card login-card">
+  <div class="auth-logo">✈️</div>
+  <h1 class="auth-title">Welcome Back</h1>
+  <p class="auth-sub">Sign in to your WanderLux account</p>
+
+  <form id="loginForm" class="auth-form" novalidate>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Email ID</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" />
+      <span class="error-msg" id="err-email"></span>
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <div class="password-wrap">
+        <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" />
+        <button type="button" class="toggle-eye" id="togglePass" aria-label="Toggle password visibility">👁️</button>
+      </div>
+      <span class="error-msg" id="err-password"></span>
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" class="btn-gold full-width" style="margin-top:0.5rem;">Login</button>
+  </form>
+
+  <hr class="auth-divider" />
+  <p class="auth-link">Don't have an account? <a href="register.html">Register here →</a></p>
+</div>
+
+<script>
+  // ===== SHOW / HIDE PASSWORD =====
+  document.getElementById("togglePass").addEventListener("click", function () {
+    const input = document.getElementById("password");
+    input.type = input.type === "password" ? "text" : "password";
+    this.textContent = input.type === "password" ? "👁️" : "🙈";
+  });
+
+  // ===== LOGIN FORM VALIDATION =====
+  document.getElementById("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    let valid = true;
+
+    // Clear all errors
+    document.querySelectorAll(".error-msg").forEach(el => el.textContent = "");
+
+    const email    = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+
+    // --- Email ---
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) {
+      document.getElementById("err-email").textContent = "Email address is required.";
+      valid = false;
+    } else if (!emailRegex.test(email)) {
+      document.getElementById("err-email").textContent = "Please enter a valid email address.";
+      valid = false;
+    }
+
+    // --- Password ---
+    if (!password) {
+      document.getElementById("err-password").textContent = "Password is required.";
+      valid = false;
+    } else if (password.length < 8) {
+      document.getElementById("err-password").textContent = "Password must be at least 8 characters.";
+      valid = false;
+    }
+
+    // --- SUCCESS ---
+    if (valid) {
+      alert("✅ Login Successful! Welcome back to WanderLux.");
+      setTimeout(() => {
+        window.location.href = "index.html";;
+      }, 1000);
+    }
+  });
+</script>
+</body>
+</html>
