@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WanderLux — Your Journey, Our Passion</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- ===== CHECKPOINT 1: NAVBAR ===== -->
+<nav class="navbar" id="home">
+  <div class="nav-logo">
+    <span class="logo-icon">✈️</span>
+    <span class="logo-text">WanderLux</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#booking">Book</a></li>
+    <li class="dropdown">
+      <a href="#packages">Packages <span class="arrow">▾</span></a>
+      <ul class="dropdown-menu">
+        <li><a href="#packages">United States 🇺🇸</a></li>
+        <li><a href="#packages">India 🇮🇳</a></li>
+        <li><a href="#packages">France 🇫🇷</a></li>
+        <li><a href="#packages">Germany 🇩🇪</a></li>
+      </ul>
+    </li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <div class="nav-auth">
+    <a href="login.html" class="btn-outline">Login</a>
+    <a href="register.html" class="btn-filled">Register</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">&#9776;</button>
+</nav>
+
+<!-- ===== CHECKPOINT 1: HERO SECTION ===== -->
+<section class="hero" id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-tagline">Welcome to WanderLux</p>
+    <h1 class="hero-heading" id="hero-heading">Explore France 🇫🇷</h1>
+    <a href="#booking" class="btn-hero">Book Now</a>
+  </div>
+</section>
+
+<!-- ===== CHECKPOINT 2: BOOKING FORM ===== -->
+<section class="booking-section" id="booking">
+  <div class="booking-image">
+    <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&auto=format&fit=crop" alt="Travel planning" />
+  </div>
+  <div class="booking-form-wrap">
+    <h2 class="section-title gold">Plan Your Trip</h2>
+    <form id="bookingForm" class="booking-form" novalidate>
+
+      <div class="form-group">
+        <label for="destination">Where To</label>
+        <select id="destination" name="destination">
+          <option value="">— Select Destination —</option>
+          <option value="Paris">Paris</option>
+          <option value="New York">New York</option>
+          <option value="Tokyo">Tokyo</option>
+          <option value="Mumbai">Mumbai</option>
+          <option value="Rome">Rome</option>
+          <option value="Dubai">Dubai</option>
+          <option value="Bali">Bali</option>
+          <option value="Sydney">Sydney</option>
+        </select>
+        <span class="error-msg" id="err-destination"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="persons">How Many Persons</label>
+        <input type="number" id="persons" name="persons" min="1" max="20" placeholder="Number of travelers" />
+        <span class="error-msg" id="err-persons"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="startDate">Start Date</label>
+        <input type="date" id="startDate" name="startDate" />
+        <span class="error-msg" id="err-startDate"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="endDate">End Date</label>
+        <input type="date" id="endDate" name="endDate" />
+        <span class="error-msg" id="err-endDate"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" rows="4" minlength="50" maxlength="500" placeholder="Tell us about your dream trip..."></textarea>
+        <span class="char-counter" id="charCounter">0 / 500 characters</span>
+        <span class="error-msg" id="err-description"></span>
+      </div>
+
+      <button type="submit" class="btn-gold full-width">Book Now</button>
+    </form>
+  </div>
+</section>
+
+<!-- ===== CHECKPOINT 2: PACKAGES SECTION ===== -->
+<section class="packages-section" id="packages">
+  <div class="section-header">
+    <h2 class="section-title">Explore Our Packages</h2>
+    <p class="section-sub">Handpicked destinations just for you</p>
+  </div>
+  <div class="packages-grid">
+
+    <div class="package-card">
+      <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&auto=format&fit=crop" alt="Paris" />
+      <div class="card-body">
+        <h3>Paris, France</h3>
+        <p>Eiffel Tower, Louvre Museum, Seine River</p>
+        <div class="card-footer">
+          <span class="stars">⭐⭐⭐⭐⭐</span>
+          <span class="price">$1,499</span>
+        </div>
+        <button class="btn-gold full-width" onclick="scrollToBooking()">Book Now</button>
+      </div>
+    </div>
+
+    <div class="package-card">
+      <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&auto=format&fit=crop" alt="Rome" />
+      <div class="card-body">
+        <h3>Rome, Italy</h3>
+        <p>Colosseum, Vatican, Trevi Fountain</p>
+        <div class="card-footer">
+          <span class="stars">⭐⭐⭐⭐⭐</span>
+          <span class="price">$1,299</span>
+        </div>
+        <button class="btn-gold full-width" onclick="scrollToBooking()">Book Now</button>
+      </div>
+    </div>
+
+    <div class="package-card">
+      <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&auto=format&fit=crop" alt="Tokyo" />
+      <div class="card-body">
+        <h3>Tokyo, Japan</h3>
+        <p>Shibuya, Mount Fuji, Temples</p>
+        <div class="card-footer">
+          <span class="stars">⭐⭐⭐⭐⭐</span>
+          <span class="price">$1,799</span>
+        </div>
+        <button class="btn-gold full-width" onclick="scrollToBooking()">Book Now</button>
+      </div>
+    </div>
+
+    <div class="package-card">
+      <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&auto=format&fit=crop" alt="Bali" />
+      <div class="card-body">
+        <h3>Bali, Indonesia</h3>
+        <p>Rice Terraces, Temples, Beaches</p>
+        <div class="card-footer">
+          <span class="stars">⭐⭐⭐⭐☆</span>
+          <span class="price">$999</span>
+        </div>
+        <button class="btn-gold full-width" onclick="scrollToBooking()">Book Now</button>
+      </div>
+    </div>
+
+    <div class="package-card">
+      <img src="https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?w=800&auto=format&fit=crop" alt="New York" />
+      <div class="card-body">
+        <h3>New York, USA</h3>
+        <p>Times Square, Central Park, Statue of Liberty</p>
+        <div class="card-footer">
+          <span class="stars">⭐⭐⭐⭐⭐</span>
+          <span class="price">$1,599</span>
+        </div>
+        <button class="btn-gold full-width" onclick="scrollToBooking()">Book Now</button>
+      </div>
+    </div>
+
+    <div class="package-card">
+      <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&auto=format&fit=crop" alt="Dubai" />
+      <div class="card-body">
+        <h3>Dubai, UAE</h3>
+        <p>Burj Khalifa, Desert Safari, Gold Souk</p>
+        <div class="card-footer">
+          <span class="stars">⭐⭐⭐⭐⭐</span>
+          <span class="price">$1,899</span>
+        </div>
+        <button class="btn-gold full-width" onclick="scrollToBooking()">Book Now</button>
+      </div>
+    </div>
+
+    <div class="package-card">
+      <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800&auto=format&fit=crop" alt="Santorini" />
+      <div class="card-body">
+        <h3>Santorini, Greece</h3>
+        <p>Blue Domes, Sunset Views, Beaches</p>
+        <div class="card-footer">
+          <span class="stars">⭐⭐⭐⭐⭐</span>
+          <span class="price">$1,699</span>
+        </div>
+        <button class="btn-gold full-width" onclick="scrollToBooking()">Book Now</button>
+      </div>
+    </div>
+
+    <div class="package-card">
+      <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&auto=format&fit=crop" alt="Maldives" />
+      <div class="card-body">
+        <h3>Maldives</h3>
+        <p>Overwater Bungalows, Coral Reefs, Lagoons</p>
+        <div class="card-footer">
+          <span class="stars">⭐⭐⭐⭐⭐</span>
+          <span class="price">$2,499</span>
+        </div>
+        <button class="btn-gold full-width" onclick="scrollToBooking()">Book Now</button>
+      </div>
+    </div>
+
+    <div class="package-card">
+      <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&auto=format&fit=crop" alt="Swiss Alps" />
+      <div class="card-body">
+        <h3>Swiss Alps</h3>
+        <p>Skiing, Mountain Views, Chalets</p>
+        <div class="card-footer">
+          <span class="stars">⭐⭐⭐⭐☆</span>
+          <span class="price">$2,199</span>
+        </div>
+        <button class="btn-gold full-width" onclick="scrollToBooking()">Book Now</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== CHECKPOINT 2: SERVICES SECTION ===== -->
+<section class="services-section" id="services">
+  <div class="section-header">
+    <h2 class="section-title">What We Offer</h2>
+  </div>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <span class="service-icon">🏨</span>
+      <h3>Affordable Hotels</h3>
+      <p>Luxury stays at budget-friendly prices worldwide</p>
+    </div>
+
+    <div class="service-card">
+      <span class="service-icon">🍽️</span>
+      <h3>Food &amp; Drinks</h3>
+      <p>Curated local dining experiences and culinary tours</p>
+    </div>
+
+    <div class="service-card">
+      <span class="service-icon">🛡️</span>
+      <h3>Safety Guide</h3>
+      <p>24/7 on-ground safety support and emergency assistance</p>
+    </div>
+
+    <div class="service-card">
+      <span class="service-icon">🌐</span>
+      <h3>Visa Assistance</h3>
+      <p>Hassle-free visa processing for 150+ countries</p>
+    </div>
+
+    <div class="service-card">
+      <span class="service-icon">🔐</span>
+      <h3>Travel Insurance</h3>
+      <p>Comprehensive coverage for medical, trip cancellation &amp; more</p>
+    </div>
+
+    <div class="service-card">
+      <span class="service-icon">📞</span>
+      <h3>24/7 Customer Support</h3>
+      <p>Round-the-clock help from our travel experts</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== CHECKPOINT 3: GALLERY SECTION ===== -->
+<section class="gallery-section" id="gallery">
+  <div class="section-header">
+    <h2 class="section-title">Travel Memories</h2>
+    <p class="section-sub">Glimpses from our journeys around the world</p>
+  </div>
+  <div class="gallery-grid">
+
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&auto=format&fit=crop" alt="Mountain landscape" />
+      <div class="gallery-overlay"><span>❤️</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&auto=format&fit=crop" alt="Paris at night" />
+      <div class="gallery-overlay"><span>❤️</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&auto=format&fit=crop" alt="Istanbul" />
+      <div class="gallery-overlay"><span>❤️</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop" alt="Tropical beach" />
+      <div class="gallery-overlay"><span>❤️</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=800&auto=format&fit=crop" alt="Mountain fog" />
+      <div class="gallery-overlay"><span>❤️</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800&auto=format&fit=crop" alt="Kyoto Japan" />
+      <div class="gallery-overlay"><span>❤️</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=800&auto=format&fit=crop" alt="Venice canals" />
+      <div class="gallery-overlay"><span>❤️</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=800&auto=format&fit=crop" alt="India gateway" />
+      <div class="gallery-overlay"><span>❤️</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800&auto=format&fit=crop" alt="Road trip" />
+      <div class="gallery-overlay"><span>❤️</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1504214208698-ea1916a2195a?w=800&auto=format&fit=crop" alt="Colosseum" />
+      <div class="gallery-overlay"><span>❤️</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=800&auto=format&fit=crop" alt="European city" />
+      <div class="gallery-overlay"><span>❤️</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=800&auto=format&fit=crop" alt="Desert dunes" />
+      <div class="gallery-overlay"><span>❤️</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== CHECKPOINT 3: ABOUT SECTION ===== -->
+<section class="about-section" id="about">
+  <div class="about-image">
+    <img src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?w=800&auto=format&fit=crop" alt="Travel blogger" />
+  </div>
+  <div class="about-content">
+    <h2 class="section-title">About WanderLux</h2>
+    <h4 class="subtitle-gold">Our Story</h4>
+    <p class="about-para">Founded in 2010, WanderLux has been crafting unforgettable travel experiences for over a decade. We believe travel transforms lives — it broadens perspectives, forges connections, and creates memories that last a lifetime. From hidden gems to iconic landmarks, we curate every journey with passion and precision.</p>
+
+    <div class="stats-grid">
+      <div class="stat-box">
+        <span class="stat-icon">🌍</span>
+        <span class="stat-num">150+</span>
+        <span class="stat-label">Destinations</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-icon">👥</span>
+        <span class="stat-num">50,000+</span>
+        <span class="stat-label">Travelers</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-icon">🏆</span>
+        <span class="stat-num">12</span>
+        <span class="stat-label">Awards</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-icon">⭐</span>
+        <span class="stat-num">4.9</span>
+        <span class="stat-label">Rating</span>
+      </div>
+    </div>
+
+    <h4 class="subtitle-gold">Why Choose Us</h4>
+    <ul class="why-list">
+      <li><span class="check">✓</span> Tailor-made itineraries crafted by expert travel consultants</li>
+      <li><span class="check">✓</span> Best price guarantee with no hidden fees</li>
+      <li><span class="check">✓</span> 24/7 on-trip support from local guides worldwide</li>
+      <li><span class="check">✓</span> Sustainable travel practices for eco-conscious explorers</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== CHECKPOINT 3: FOOTER ===== -->
+<footer class="footer" id="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">✈️ <span>WanderLux</span></div>
+      <p class="footer-tagline">Your Journey, Our Passion</p>
+      <p class="footer-desc">Creating extraordinary travel experiences since 2010. Let us take you to places that will change you forever.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#booking">Book</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </div>
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#" class="social-btn" aria-label="Facebook">📘</a>
+        <a href="#" class="social-btn" aria-label="Instagram">📸</a>
+        <a href="#" class="social-btn" aria-label="Twitter">🐦</a>
+        <a href="#" class="social-btn" aria-label="YouTube">▶️</a>
+      </div>
+      <div class="footer-contact">
+        <p>📧 hello@wanderlux.com</p>
+        <p>📞 +91 98765 43210</p>
+        <p>📍 Mumbai, India</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 WanderLux Travel Agency. All Rights Reserved. | Made with ❤️ in India</p>
+  </div>
+</footer>
+
+<script>
+  // ===== HERO ROTATING TEXT =====
+  const destinations = [
+    "Explore France 🇫🇷",
+    "Discover India 🇮🇳",
+    "Visit Japan 🇯🇵",
+    "See Germany 🇩🇪",
+    "Tour Italy 🇮🇹",
+    "Explore USA 🇺🇸"
+  ];
+  let destIndex = 0;
+  const heroHeading = document.getElementById("hero-heading");
+
+  setInterval(() => {
+    heroHeading.classList.add("fade-out");
+    setTimeout(() => {
+      destIndex = (destIndex + 1) % destinations.length;
+      heroHeading.textContent = destinations[destIndex];
+      heroHeading.classList.remove("fade-out");
+      heroHeading.classList.add("fade-in");
+      setTimeout(() => heroHeading.classList.remove("fade-in"), 400);
+    }, 300);
+  }, 2000);
+
+  // ===== SMOOTH SCROLL TO BOOKING =====
+  function scrollToBooking() {
+    document.getElementById("booking").scrollIntoView({ behavior: "smooth" });
+  }
+
+  // ===== SET TODAY AS MIN DATE =====
+  window.addEventListener("DOMContentLoaded", () => {
+    const today = new Date().toISOString().split("T")[0];
+    document.getElementById("startDate").min = today;
+    document.getElementById("endDate").min = today;
+  });
+
+  // ===== END DATE VALIDATION ON START DATE CHANGE =====
+  document.getElementById("startDate").addEventListener("change", function () {
+    const startVal = this.value;
+    if (startVal) {
+      const nextDay = new Date(startVal);
+      nextDay.setDate(nextDay.getDate() + 1);
+      document.getElementById("endDate").min = nextDay.toISOString().split("T")[0];
+      document.getElementById("endDate").value = "";
+    }
+  });
+
+  // ===== CHARACTER COUNTER =====
+  const descField = document.getElementById("description");
+  const charCounter = document.getElementById("charCounter");
+
+  descField.addEventListener("input", function () {
+    const len = this.value.length;
+    charCounter.textContent = `${len} / 500 characters`;
+    if (len < 50) {
+      charCounter.className = "char-counter red";
+    } else {
+      charCounter.className = "char-counter green";
+    }
+  });
+
+  // ===== BOOKING FORM VALIDATION =====
+  document.getElementById("bookingForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    let valid = true;
+
+    const clearErrors = () => {
+      document.querySelectorAll(".error-msg").forEach(el => el.textContent = "");
+    };
+    clearErrors();
+
+    const destination = document.getElementById("destination").value;
+    const persons = document.getElementById("persons").value;
+    const startDate = document.getElementById("startDate").value;
+    const endDate = document.getElementById("endDate").value;
+    const description = document.getElementById("description").value;
+
+    if (!destination) {
+      document.getElementById("err-destination").textContent = "Please select a destination.";
+      valid = false;
+    }
+    if (!persons || persons < 1 || persons > 20) {
+      document.getElementById("err-persons").textContent = "Please enter a valid number of travelers (1–20).";
+      valid = false;
+    }
+    if (!startDate) {
+      document.getElementById("err-startDate").textContent = "Please select a start date.";
+      valid = false;
+    }
+    if (!endDate) {
+      document.getElementById("err-endDate").textContent = "Please select an end date.";
+      valid = false;
+    } else if (startDate && endDate <= startDate) {
+      document.getElementById("err-endDate").textContent = "End date must be after start date.";
+      valid = false;
+    }
+    if (description.length < 50) {
+      document.getElementById("err-description").textContent = "Description must be at least 50 characters.";
+      valid = false;
+    }
+    if (description.length > 500) {
+      document.getElementById("err-description").textContent = "Description must not exceed 500 characters.";
+      valid = false;
+    }
+
+    if (valid) {
+      alert("🎉 Booking Successful! Thank you for choosing WanderLux. We will contact you shortly.");
+      this.reset();
+      charCounter.textContent = "0 / 500 characters";
+      charCounter.className = "char-counter";
+    }
+  });
+
+  // ===== HAMBURGER MENU =====
+  document.getElementById("hamburger").addEventListener("click", () => {
+    document.querySelector(".nav-links").classList.toggle("open");
+  });
+</script>
+</body>
+</html>
